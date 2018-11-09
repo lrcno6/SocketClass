@@ -1,6 +1,6 @@
 #ifndef _SOCKET_CLASS_H_
 #define _SOCKET_CLASS_H_
-#define WIN_OS
+//#define WIN_OS
 #include<string>
 #include<cstring>
 #ifdef WIN_OS
