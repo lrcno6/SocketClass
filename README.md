@@ -1,27 +1,51 @@
-## SocketClass Alpha 1.0
+# SocketClass
 
-To use *Socket* by a class
+to use *socket* by a class
 
 --------
+
+## version
+
+inside version: change the way to detect the build environment
+
+---
 
 License:*LGPL v3.0*
-
---------
 
 GitHub address:https://github.com/lrcno6/SocketClass
 
 --------
 
-*SocketClass* is a static library,and it is used on both *Windows* and *linux*.Please compile *Socket_class.cpp* and make a static library file *libSocketClass.a*(or *SocketClass.lib* or others)
+*SocketClass* is a class library to use *socket*, and it is used on both *Windows* and *linux*.
 
-And,if you cannot link function *_imp__htons* and so on you do not know,maybe you also need to link *libws2_32.a* or *ws2_32.lib*
+What is more, if you cannot link function *_imp__htons* and so on you do not know when you use *SocketClass*, maybe you also need to link *libws2_32.a* or *ws2_32.lib*
 
 --------
 
-### Example
+## how to use it
+
+you should make first:
+
+```bash
+make gcc # for G++
+make msvc # for Visual C++
+```
+
+and then link to *libsocket_class.a* or *socket_class.lib*:
+
+```bash
+# for example
+g++ user.cpp -o user -LSocketClass -lsocket_class # for linux (g++)
+cl user.cpp console/console.lib ws2_32.lib # for Windows (MSVC), remember to link to ws2_32.lib
+g++ user.cpp -o user -LSocketClass -lsocket_class -lws2_32 # for Windows (MinGW), remember to link to libws2_32
+```
+
+---
+
+## Example
 
 ```cpp
-//server.cpp
+// server.cpp
 #include<iostream>
 #include<thread>
 #include<mutex>
@@ -61,7 +85,7 @@ int main(){
 ```
 
 ```cpp
-//client.cpp
+// client.cpp
 #include<iostream>
 #include"socket_class.h"
 using namespace std;
@@ -87,4 +111,4 @@ int main(){
 
 Welcome to help to improve *SocketClass*!
 
-By *EnderPearl*
+by [lrcno6](https://github.com/lrcno6)

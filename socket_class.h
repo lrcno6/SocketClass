@@ -1,11 +1,13 @@
 #ifndef _SOCKET_CLASS_H_
 #define _SOCKET_CLASS_H_
-//#define WIN_OS
 #include<string>
 #include<cstring>
+#if defined(_WIN32) || defined(_WIN64)
+#define WIN_OS
+#endif
 #ifdef WIN_OS
 #include<winsock2.h>
-#pragma comment(lib,"libws2_32")
+// #pragma comment(lib,"libws2_32")
 #define cs closesocket
 #else
 #include<unistd.h>
